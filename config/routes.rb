@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  root "weather_forecast#index"
+
+  resources :weather_forecast, only: [:index]
 end

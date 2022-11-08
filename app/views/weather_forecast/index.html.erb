@@ -1,0 +1,7 @@
+Weather Forecast
+
+<%= form_with url: weather_forecast_index_path, method: :get do |f| %>
+  <%= f.label :address, "Get weather by address:" %>
+  <%= f.text_field :address %>
+  <%= f.submit "Search" %>
+<% end %>
