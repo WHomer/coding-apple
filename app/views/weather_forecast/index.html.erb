@@ -1,7 +1,34 @@
-Weather Forecast
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="text-center">
+      <div class="titlle pb-2">Weather Forecast</div>
+      <%= form_with url: weather_forecast_index_path, method: :get do |f| %>
+        <%= f.label :address, "Lookup Address:" %>
+        <%= f.text_field :address %>
+        <%= f.submit "Search" %>
+      <% end %>
+    </div>
+    <div class="p-3">
+      <div>
+        <% if @coordinates %>
+          <div>Search Results for: <%= params[:address] %></div>
+        <% end %>
+      </div>
 
-<%= form_with url: weather_forecast_index_path, method: :get do |f| %>
-  <%= f.label :address, "Get weather by address:" %>
-  <%= f.text_field :address %>
-  <%= f.submit "Search" %>
-<% end %>
+      <div>
+        <% if @coordinates.success? && @weather.success? %>
+          <div>Condition: <%= @weather.weather_poro.condition %></div>
+          <div>Description: <%= @weather.weather_poro.description %></div>
+          <div>Temperature: <%= @weather.weather_poro.temp %>F</div>
+          <div>Feels Like: <%= @weather.weather_poro.feels_like %>F</div>
+          <div>Humidity: <%= @weather.weather_poro.humidity %>%</div>
+          <% if @weather.is_cached %>
+            <i>Last updated 30 minutes ago.</i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>

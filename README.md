@@ -1,30 +1,33 @@
-# README
+# README - Weather Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application takes an address as input and outputs to a page the current weather information.
 
-Things you may want to cover:
+## Running locally
 
-* Ruby version
+* Clone this repo
+* run `bundle`
+* run `rails db:create`
+* run `bundle exec figaro install`
+* Add the below enviroment variables to application.yml
 
-* System dependencies
+This application relies on OpenWeather API and MapQuest API.
 
-* Configuration
+``` yml
+map_quest_key:
+map_quest_secret:
+open_weather_key:
+```
 
-* Database creation
+Optionally to enable caching locally in dev run `rails dev:cache`.
 
-* Database initialization
+## Testing
 
-* How to run the test suite
+* Testing can be ran by running `rspec` to run the entire test suite.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Future and Considerations
+These are areas in no particular order that I would look to improve if I was to spend additional time.
 
-* Deployment instructions
-
-* ...
-
-For api keys
-config/application.yml
-
-MapQuest
-https://developer.mapquest.com/documentation/samples/geocoding/v1/address
+* Look at adding type ahead on search input to help the user get to an address faster.
+* Consider caching the address lat/long lookup for a longer period of time or persist in a database.
+* Adding future weather forecasting and utilize paritials for html.
+* Further test edge cases on service classes.

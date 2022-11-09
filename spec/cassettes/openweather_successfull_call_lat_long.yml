@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openweathermap.org/data/2.5/weather?appid=<open_weather_key>&lat=39.738453&lon=-104.984853&units=imperial
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Wed, 09 Nov 2022 08:11:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '478'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?lat=39.74&lon=-104.98&units=imperial"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":-104.9849,"lat":39.7385},"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01n"}],"base":"stations","main":{"temp":51.4,"feels_like":47.61,"temp_min":40.15,"temp_max":59.18,"pressure":1008,"humidity":29},"visibility":10000,"wind":{"speed":1.99,"deg":294,"gust":3},"clouds":{"all":9},"dt":1667981468,"sys":{"type":2,"id":2004334,"country":"US","sunrise":1668001066,"sunset":1668037792},"timezone":-25200,"id":5419384,"name":"Denver","cod":200}'
+  recorded_at: Wed, 09 Nov 2022 08:11:08 GMT
+recorded_with: VCR 6.1.0
